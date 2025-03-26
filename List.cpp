@@ -139,3 +139,32 @@ List& List::operator=(List&& lst) {
     lst.size = 0;
     return *this;
 }
+
+List List::operator()(int start, int end, int step) const
+{
+    if (step == 0)
+    {
+        throw IndexError();
+    }
+    List result;
+    if (start < 0)
+    {
+        start = size + start;
+    }
+    if (end < 0)
+    {
+        end = size + end;
+    }
+    int i = start;
+    while ((step > 0 && i < end) || (step < 0 && i > end))
+    {
+        result.append(array[i]);
+        i += step;
+    }
+    return result;
+}
+
+List List::operator()(int start, int end) const
+{
+    return operator()(start, end, 1);
+}

@@ -24,4 +24,7 @@ public:
     void operator*=(unsigned int value);
     List& operator=(const List& lst);
     List& operator=(List&& lst);
+
+    List operator()(int start, int end, int step) const;
+    List operator()(int start, int end) const;
 };

@@ -21,11 +21,9 @@ int main() {
 
     List lst = getRandomList(10);
     cout << lst << endl;
-    cout << lst[0] << ' ' << lst[-1] << endl;
-
-    lst[0] = 0;
-    lst[-1] = 777;
-    cout << lst << endl;
+    cout << lst(2, -1, 2) << endl;
+    cout << lst(2, -1) << endl;
+    cout << lst(-1, 0, -1) << endl;
 
     return 0;
 }
