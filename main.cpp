@@ -21,10 +21,10 @@ int main() {
 
     List lst = getRandomList(10);
     cout << lst << endl;
-    cout << lst.getAt(0) << ' ' << lst.getAt(-1) << endl;
+    cout << lst[0] << ' ' << lst[-1] << endl;
 
-    lst.setAt(0, 0);
-    lst.setAt(-1, 777);
+    lst[0] = 0;
+    lst[-1] = 777;
     cout << lst << endl;
 
     return 0;

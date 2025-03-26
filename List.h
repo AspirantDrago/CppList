@@ -13,8 +13,8 @@ public:
     List(List&& lst);
     ~List();
     unsigned int getSize() const;
-    int getAt(int index) const;
-    void setAt(int index, int value);
+    int operator[](int index) const;
+    int& operator[](int index);
     void append(int value);
     void clear();
 

@@ -40,7 +40,7 @@ unsigned int List::getSize() const {
     return size;
 }
 
-int List::getAt(int index) const {
+int List::operator[](int index) const {
     if (index >= 0) {
         if (index >= size) {
             throw IndexError();
@@ -54,17 +54,17 @@ int List::getAt(int index) const {
     }
 }
 
-void List::setAt(int index, int value) {
+int& List::operator[](int index) {
     if (index >= 0) {
         if (index >= size) {
             throw IndexError();
         }
-        array[index] = value;
+        return array[index];
     } else {
         if (index < -size) {
             throw IndexError();
         }
-        array[size + index] = value; // т.к. index - отрицательное число
+        return array[size + index]; // т.к. index - отрицательное число
     }
 }
 
@@ -92,10 +92,10 @@ void List::operator*=(const unsigned int value) {
 std::ostream& operator<<(std::ostream& os, const List& lst) {
     os << '[';
     if (lst.getSize() > 0) {
-        os << lst.getAt(0);
+        os << lst[0];
     }
     for (int i = 1; i < lst.getSize(); i++) {
-        os << ", " << lst.getAt(i);
+        os << ", " << lst[i];
     }
     os << ']';
     return os;
@@ -105,7 +105,7 @@ List operator*(const List& lst, int value) {
     List result;
     while (value--) {
         for (int i = 0; i < lst.getSize(); i++) {
-            result.append(lst.getAt(i));
+            result.append(lst[i]);
         }
     }
     return result;
