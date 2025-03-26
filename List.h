@@ -19,6 +19,7 @@ public:
     void clear();
 
     friend std::ostream& operator<<(std::ostream& os, const List& lst);
+    friend std::istream& operator>>(std::istream& is, List& lst);
     friend List operator*(const List& lst, int value);
     friend List operator*(int value, const List& lst);
     void operator*=(unsigned int value);
@@ -27,4 +28,6 @@ public:
 
     List operator()(int start, int end, int step) const;
     List operator()(int start, int end) const;
+
+    operator bool() const;
 };

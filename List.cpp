@@ -1,3 +1,6 @@
+#include <string>
+#include <sstream>
+
 #include "List.h"
 
 #include <exception>
@@ -101,6 +104,22 @@ std::ostream& operator<<(std::ostream& os, const List& lst) {
     return os;
 }
 
+std::istream& operator>>(std::istream& is, List& lst)
+{
+    const int BUFFER_SIZE = 100;
+    char buffer[BUFFER_SIZE];
+    is.getline(buffer, BUFFER_SIZE);
+    stringstream ss(buffer);
+
+    while (!ss.eof())
+    {
+        int x;
+        ss >> x;
+        lst.append(x);
+    }
+    return is;
+}
+
 List operator*(const List& lst, int value) {
     List result;
     while (value--) {
@@ -167,4 +186,9 @@ List List::operator()(int start, int end, int step) const
 List List::operator()(int start, int end) const
 {
     return operator()(start, end, 1);
+}
+
+List::operator bool() const
+{
+    return size > 0;
 }

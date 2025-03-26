@@ -19,11 +19,9 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     srand(time(nullptr));
 
-    List lst = getRandomList(10);
-    cout << lst << endl;
-    cout << lst(2, -1, 2) << endl;
-    cout << lst(2, -1) << endl;
-    cout << lst(-1, 0, -1) << endl;
+    List ls;
+    cin >> ls;
+    cout << ls << endl;
 
     return 0;
 }
