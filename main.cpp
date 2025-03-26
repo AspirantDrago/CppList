@@ -19,9 +19,13 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
     srand(time(nullptr));
 
-    List lst;
+    List lst = getRandomList(10);
+    cout << lst << endl;
+    cout << lst.getAt(0) << ' ' << lst.getAt(-1) << endl;
 
-    lst = getRandomList(10);
+    lst.setAt(0, 0);
+    lst.setAt(-1, 777);
+    cout << lst << endl;
 
     return 0;
 }

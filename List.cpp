@@ -8,11 +8,11 @@ class IndexError : std::exception {
 };
 
 List::List() : size(0), capacity(ZAPAS), array(new int[ZAPAS]) {
-    cout << "Конструктор по-умолчанию" << endl;
+    // cout << "Конструктор по-умолчанию" << endl;
 }
 
 List::List(const List &lst) {
-    cout << "Конструктор копирования" << endl;
+    // cout << "Конструктор копирования" << endl;
     size = lst.size;
     capacity = lst.capacity;
     array = new int[capacity];
@@ -22,7 +22,7 @@ List::List(const List &lst) {
 }
 
 List::List(List &&lst) {
-    cout << "Конструктор перемещения" << endl;
+    // cout << "Конструктор перемещения" << endl;
     size = lst.size;            // Забираем у исходного объекта все члены
     capacity = lst.capacity;
     array = lst.array;
@@ -116,7 +116,7 @@ List operator*(int value, const List& lst) {
 }
 
 List& List::operator=(const List& lst) {
-    cout << "Оператор присваивания с копированием" << endl;
+    // cout << "Оператор присваивания с копированием" << endl;
     if (this == &lst) {             // Проверка на самокопирование
         return *this;
     }
@@ -131,7 +131,7 @@ List& List::operator=(const List& lst) {
 }
 
 List& List::operator=(List&& lst) {
-    cout << "Оператор присваивания с перемещением" << endl;
+    // cout << "Оператор присваивания с перемещением" << endl;
     size = lst.size;
     capacity = lst.capacity;
     array = lst.array;
